@@ -24,7 +24,8 @@ env_list = dict()
 
 local_env = open(os.path.join(BASE_DIR, '.env'))
 
-while True: #파일 안에 내용을 읽어오는 코드
+while True:
+#파일 안에 내용을 읽어오는 코드
     line =  local_env.readline()
     if not line: #라인 안에 아무것도 없으면 이 루프를 빠져나가면 된다.
         break
