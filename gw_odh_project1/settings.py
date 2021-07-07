@@ -138,8 +138,6 @@ USE_TZ = True
 STATIC_URL = '/static/'
 #이거랑 다른곳에 base와 같이 연결 되어 href
 
-
-
 STATICFILES_DIRS = [
     BASE_DIR / "static/",
 ]
