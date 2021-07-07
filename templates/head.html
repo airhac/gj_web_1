@@ -1,3 +1,6 @@
+{%  load static %}
+{# static 파일을 쓸수 있도록 한다. #}
+
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
@@ -9,4 +12,8 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+
+    {# DEFAULT CSS LINK #}
+    <link rel = 'stylesheet' type="text/css" href = "{% static 'base.css' %}">
+    {# 그 형식 자체가 css이다.#}
 </head>
