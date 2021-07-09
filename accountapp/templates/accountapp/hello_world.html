@@ -5,6 +5,10 @@
     <div style="margin : 2rem; text-align : center">
     {# scroll옵션도 가능, scroll도 안보이게 할수 있음#}
         <h1>HTTP METHOD</h1>
+        <form action="/accounts/hello_world/" method = 'post'>
+            {% csrf_token %}
+            <input type="submit"; class="btn btn-outline-primary rounded-pill px-5">
+        </form>
     {#  단순 변수 출력 #}
     <h3>{{ text }}</h3>
     </div>
