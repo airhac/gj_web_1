@@ -11,10 +11,13 @@
             {# input tag의 이름을 지정해준다  #}
             <input type="submit"; class="btn btn-outline-primary rounded-pill px-5">
         </form>
-    {#  단순 변수 출력 #}
+        {#  단순 변수 출력 #}
 
         {# <h3>{{ text }}</h3> #}
-    <h3>{{ model_instance.text }}</h3>
-    {# model_instance안에 있는 text속설을 가지고 온다 #}
+        {# <h3>{{ model_instance.text }}</h3> #}
+        {# model_instance안에 있는 text속설을 가지고 온다 #}
+        {% for data in data_list %}
+            <h3>{{ data.text }}</h3>
+        {% endfor %}
     </div>
 {% endblock %}
