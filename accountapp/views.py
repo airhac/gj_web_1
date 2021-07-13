@@ -19,4 +19,4 @@ def hello_world(request):
         data_list = NewModel.objects.all()  # 이 모델의 모든 오브젝트드을 가지고 오겠다.
 
         return render(request, 'accountapp/hello_world.html', context={'data_list': data_list})
-#어떠한 주소로 들어갔을떄 이것을 볼수 있는지 확인
+        #어떠한 주소로 들어갔을떄 이것을 볼수 있는지 확인
