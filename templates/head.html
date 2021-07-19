@@ -17,4 +17,24 @@
     {# DEFAULT CSS LINK #}
     <link rel = 'stylesheet' type="text/css" href = "{% static 'base.css' %}">
     {# 그 형식 자체가 css이다.#}
+
+    {# 네이버 폰트 #}
+    <style>
+        @font-face {
+            font-family: 'NanumSquareR';
+            scr: local('NanumSquareR'),
+            url("{% static 'fonts/NanumSquareR.ttf' %}") format("opentype");
+        }
+        @font-face {
+            font-family: 'NanumSquareEB';
+            scr: local('NanumSquareEB'),
+            url("{% static 'fonts/NanumSquareEB.ttf' %}") format("opentype");
+        }
+        @font-face {
+            font-family: 'NanumSquareB';
+            scr: local('NanumSquareB'),
+            url("{% static 'fonts/NanumSquareB.ttf' %}") format("opentype");
+        }
+
+    </style>
 </head>
