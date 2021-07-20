@@ -3,7 +3,7 @@ from django.contrib.auth.models import User
 from django.http import HttpResponse, HttpResponseRedirect
 from django.shortcuts import render
 from django.urls import reverse, reverse_lazy
-from django.views.generic import CreateView, DetailView
+from django.views.generic import CreateView, DetailView, UpdateView, DeleteView
 
 from accountapp.models import NewModel
 
@@ -33,5 +33,18 @@ class AccountCreateView(CreateView):
 
 class AccountDetailView(DetailView):
     model = User
+    context_object_name = 'target_user' # target_user는 어떠한 키값이든지 간에 다 받는 변수의 이름
+    template_name = 'accountapp/detail.html'
+
+class AccountUpdateView(UpdateView): #어떠한 객체를 업데이트 할것인가?
+    model = User
+    form_class = UserCreationForm
     context_object_name = 'target_user'
-    template_name =  'accountapp/detail.html'
+    success_url = reverse_lazy('accountapp:hello_world') #업데이트도 성공했을떄 어디로 연결할지를 적어 주어야한다.
+    template_name = 'accountapp/update.html'
+
+class AccountDeleteView(DeleteView):
+    model = User
+    context_object_name = 'target_user'
+    success_url =  reverse_lazy('accountapp:hello_world')
+    template_name = 'accountapp/delete.html'

@@ -5,10 +5,12 @@
     <div class="airhac_header_button">
         <span>nav1</span>
         <span>nav2</span>
-        <span>nav3</span>
         {% if not user.is_authenticated %}
             <a href="{% url 'accountapp:login' %}?next={{ request.path }}">
                 <span>login</span>
+            </a>
+            <a href="{% url 'accountapp:create' %}?next={{ request.path }}">
+                <span>Sign up</span>
             </a>
         {% else %}
             <a href="{% url 'accountapp:detail' pk=user.pk %}">
