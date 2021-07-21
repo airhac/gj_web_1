@@ -1,13 +1,24 @@
 
 def decorator(func):
-    def decorated(input_text):
-        print('함수 시작!')
-        func(input_text)
-        print('함수 끝!')
+    def decorated(h,l):
+        if h > 0 and l > 0:
+            func(h,l)
+        else:
+            print('error 발생')#raise ValueError()
     return decorated
 
-@decorator
-def hello_world(input_text):
-    print(input_text)
+@decorator #이름 변경 가능하다
+def rectangular(height, length):
+    result = height*length
+    print(result)
 
-hello_world('Hello_ World')
+@decorator
+def triangle(height, length):
+    result = height*length*0.5
+    print(result)
+
+# raise PermissionError
+triangle(2,-4)
+
+
+
