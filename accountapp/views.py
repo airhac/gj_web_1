@@ -1,6 +1,6 @@
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import User
-from django.http import HttpResponse, HttpResponseRedirect
+from django.http import HttpResponse, HttpResponseRedirect, HttpResponseForbidden
 from django.shortcuts import render
 from django.urls import reverse, reverse_lazy
 from django.views.generic import CreateView, DetailView, UpdateView, DeleteView
@@ -47,17 +47,16 @@ class AccountUpdateView(UpdateView): #어떠한 객체를 업데이트 할것인
     template_name = 'accountapp/update.html'
 
     def get(self, request, *args, **kwargs):
-        if request.user.is_authenticated:
+        if request.user.is_authenticated and self.get_object() == request.user:#targetuser의 객체를 그대로 가져와 쓴다.
             return super().get(self, request, *args, **kwargs)
         else:
-            return HttpResponseRedirect(reverse('accountapp:login'))
-
+            return HttpResponseForbidden()
 
     def post(self, request, *args, **kwargs):
-        if request.user.is_authenticated:
+        if request.user.is_authenticated and self.get_object() == request.user:
             return super().post(self, request, *args, **kwargs)
         else:
-            return HttpResponseRedirect(reverse('accountapp:login'))
+            return HttpResponseForbidden()
 
 class AccountDeleteView(DeleteView):
     model = User
@@ -66,13 +65,13 @@ class AccountDeleteView(DeleteView):
     template_name = 'accountapp/delete.html'
 
     def get(self, request, *args, **kwargs):
-        if request.user.is_authenticated:
+        if request.user.is_authenticated and self.get_object() == request.user:  # targetuser의 객체를 그대로 가져와 쓴다.
             return super().get(self, request, *args, **kwargs)
         else:
-            return HttpResponseRedirect(reverse('accountapp:login'))
+            return HttpResponseForbidden()
 
     def post(self, request, *args, **kwargs):
-        if request.user.is_authenticated:
+        if request.user.is_authenticated and self.get_object() == request.user:
             return super().post(self, request, *args, **kwargs)
         else:
-            return HttpResponseRedirect(reverse('accountapp:login'))
+            return HttpResponseForbidden()
