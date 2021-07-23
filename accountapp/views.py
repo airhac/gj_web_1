@@ -7,6 +7,7 @@ from django.urls import reverse, reverse_lazy
 from django.utils.decorators import method_decorator
 from django.views.generic import CreateView, DetailView, UpdateView, DeleteView
 
+from accountapp.decorators import account_ownership_required
 from accountapp.models import NewModel
 from accountapp.templates.accountapp.forms import AccountCreationForm
 
@@ -42,8 +43,13 @@ class AccountDetailView(DetailView):
     context_object_name = 'target_user' # target_user는 어떠한 키값이든지 간에 다 받는 변수의 이름
     template_name = 'accountapp/detail.html'
 
-@method_decorator(login_required, 'get')#메서드에도 데토레이터가 적용될 수 있도록 변환 해주는 박업을 한다.
-@method_decorator(login_required, 'post')
+has_ownership = [login_required, account_ownership_required]
+
+
+
+@method_decorator(has_ownership, 'get')
+@method_decorator(has_ownership, 'post')
+#메서드에도 데토레이터가 적용될 수 있도록 변환 해주는 박업을 한다.
 class AccountUpdateView(UpdateView): #어떠한 객체를 업데이트 할것인가?
     model = User
     form_class = AccountCreationForm
@@ -51,8 +57,8 @@ class AccountUpdateView(UpdateView): #어떠한 객체를 업데이트 할것인
     success_url = reverse_lazy('accountapp:hello_world') #업데이트도 성공했을떄 어디로 연결할지를 적어 주어야한다.
     template_name = 'accountapp/update.html'
 
-@method_decorator(login_required, 'get')
-@method_decorator(login_required, 'post')
+@method_decorator(has_ownership, 'get')
+@method_decorator(has_ownership, 'post')
 class AccountDeleteView(DeleteView):
     model = User
     context_object_name = 'target_user'
