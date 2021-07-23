@@ -17,6 +17,7 @@ from django.contrib import admin
 from django.urls import path, include
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
-    path('accounts/', include('accountapp.urls'))
+    path('admin/', admin.site.urls), #관리자 페이지에 관한 설정
+    path('accounts/', include('accountapp.urls')),
+    path('profiles/', include('profileapp.urls'))
 ]#어디로 ~하면 어디로 돌려 줄것인지
