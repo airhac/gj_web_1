@@ -4,9 +4,19 @@
 
 <div>
     <div style="text-align: center; max-width: 500px; margin: 4rem auto;">
-        <p>
-            {{ target_user.date_joined }}
-        </p>
+        <div>
+            {% if target_user.profile %}
+                {# profile이 어디에 나와 있나 related_nickname을 통해 Profile에 접근 할 수 있다 #}
+                <h4>{{ target_user.profile.nickname }}</h4>
+                <h4>{{ target_user.profile.message }}</h4>
+            {% else %}
+            <h4>
+                <a href=""{% url 'profileapp:create' %}>
+                    Create Profile
+                </a>
+            </h4>
+            {% endif %}
+        </div>
         <h2 style="font-family: 'NanumSquareB'">
             {{ target_user.username }}
         </h2>
