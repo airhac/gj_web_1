@@ -14,3 +14,13 @@
 .airhac_footer_button{
     margin-top: 1.5rem;
 }
+
+.profile_image{
+    height: 12rem;
+    weight: 12rem;
+    border-radius: 20rem;
+    object-fit: cover;
+}
+.NNS_B{
+    font-family: "NanumSquareB";
+}
