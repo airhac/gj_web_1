@@ -12,7 +12,8 @@
                 {# profile이 어디에 나와 있나 related_nickname을 통해 Profile에 접근 할 수 있다 #}
                 <h2 class = "NNS_B">{{ target_user.profile.nickname }}
                     {% if target_user == user %}
-                        <a href="{% url 'profileapp:update' pk=target_user.profile.pk %}">
+                        <a href="{% url 'profileapp:update' pk=target_user.profile.pk %}"
+                        class="material-icons round_button">
                             edit
                         </a>
                      {% endif %}

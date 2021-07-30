@@ -54,8 +54,12 @@ class AccountUpdateView(UpdateView): #어떠한 객체를 업데이트 할것인
     model = User
     form_class = AccountCreationForm
     context_object_name = 'target_user'
-    success_url = reverse_lazy('accountapp:hello_world') #업데이트도 성공했을떄 어디로 연결할지를 적어 주어야한다.
+    #success_url = reverse_lazy('accountapp:hello_world') #업데이트도 성공했을떄 어디로 연결할지를 적어 주어야한다.
     template_name = 'accountapp/update.html'
+    def get_success_url(self):
+        return reverse('accountapp:detail', kwargs={'pk': self.object.pk})
+    #traget ㅐㅠㅓㄷㅊㅅfmf qkfh rkwudhftn dlTek
+
 
 @method_decorator(has_ownership, 'get')
 @method_decorator(has_ownership, 'post')
