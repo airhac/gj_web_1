@@ -22,6 +22,7 @@ from gw_odh_project1 import settings
 urlpatterns = [
     path('admin/', admin.site.urls), #관리자 페이지에 관한 설정
     path('accounts/', include('accountapp.urls')),
-    path('profiles/', include('profileapp.urls'))
+    path('profiles/', include('profileapp.urls')),
+    path('articles/', include('articleapp.urls')),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)#어디로 ~하면 어디로 돌려 줄것인지, django의 cong에 있는 static가져와야한다.
 
