@@ -281,5 +281,20 @@ let magicGrid = new MagicGrid({
   static: true,
   useMin: true
 });
+/***
+ * 요소를 찾는데 태그 이름을 가지고 태그를 찾음
+ */
+var masonry = document.getElementsByTagName("img")
+
+for (let i=0; masonry.length; i++) {
+  masonry[i].addEventListener('load', function () {
+    magicGrid.positionItems();
+    /***
+     * 각각의 이미지에 실행될 무언가를 적용시켜준다.
+     * waterfall에 하나하나씩 불러와질때 마다 재배치가 적용
+     * 재배치하는 함수
+     */
+  }, false)
+}
 
 magicGrid.listen();
