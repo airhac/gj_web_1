@@ -281,10 +281,15 @@ let magicGrid = new MagicGrid({
   static: true,
   useMin: true
 });
+
+magicGrid.listen();
+
 /***
  * 요소를 찾는데 태그 이름을 가지고 태그를 찾음
+ * document는 html에서 생성해준 태그들을 의미한다.
  */
 var masonry = document.getElementsByTagName("img")
+
 
 for (let i=0; masonry.length; i++) {
   masonry[i].addEventListener('load', function () {
@@ -296,5 +301,3 @@ for (let i=0; masonry.length; i++) {
      */
   }, false)
 }
-
-magicGrid.listen();
