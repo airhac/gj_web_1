@@ -6,14 +6,24 @@
         <div>
             {#      게시글 제목, 글쓴이, 작성 일자      #}
             <h1>
-                {{ target_object.title }}
+                {{ target_article.title }}
             </h1>
-            <h4>{{ target_object.writer.profile.nickname }}</h4>
-            <p> {{ target_object.created_at }}</p>
+            <h4>{{ target_article.writer.profile.nickname }}</h4>
+            <p> {{ target_article.created_at }}</p>
         <div>
             {# 게시글, 대표 이미지, 글 내용 #}
-            <img src="{{ target_object.image.url }}" alt="">
+            <img src="{{ target_article.image.url }}" alt="">
             {{ target_object.content }}
+            <div>
+                <a href="{% url 'articleapp:update' pk=target_article.pk %}"
+                class="btn btn-success rounded-pill px-5">
+                    Update
+                </a>
+                <a href="{% url 'articleapp:delete' pk=target_article.pk %}"
+                class="btn btn-danger rounded-pill px-5">
+                    Delete
+                </a>
+            </div>
         </div>
     </div>
 
