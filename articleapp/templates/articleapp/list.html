@@ -5,11 +5,13 @@
     <style>
         .container div {
           width: 280px;
-          background-color: antiquewhite;
           display: flex;
           justify-content: center;
           align-items: center;
           border-radius: 1rem;
+            flex-direction: column;
+            box-shadow: 0 0 1rem #e3e0e0;
+        {#  게시글이 밑에 작성 되도록합니다. #}
         }
         .container img {
             width: 100%;
@@ -17,55 +19,15 @@
         }
     </style>
     <div class="container my-4">
-      <div class="item1">
-          <img src="https://picsum.photos/200/240" aly="">
-      </div>
-      <div class="item2">
-          <img src="https://picsum.photos/200/263" aly="">
-      </div>
-      <div class="item3">
-          <img src="https://picsum.photos/200/320" aly="">
-
-      </div>
-      <div class="item4">
-          <img src="https://picsum.photos/200/300" aly="">
-
-      </div
-          <img src="https://picsum.photos/200/222" aly="">
-
-      <div class="item5">
-          <img src="https://picsum.photos/200/319" aly="">
-
-      </div>
-      <div class="item6">
-          <img src="https://picsum.photos/200/278" aly="">
-
-      </div>
-      <div class="item7">
-          <img src="https://picsum.photos/200/242" aly="">
-
-      </div>
-      <div class="item8">
-          <img src="https://picsum.photos/200/202" aly="">
-
-      </div>
-      <div class="item9">
-          <img src="https://picsum.photos/200/278" aly="">
-
-      </div>
-      <div class="item10">
-      <img src="https://picsum.photos/200/263" aly="">
-      </div>
-      <div class="item11">
-      <img src="https://picsum.photos/200/320" aly="">
-      </div>
-      <div class="item12">
-      <img src="https://picsum.photos/200/304" aly="">
-      </div>
-      <div class="item13">
-      <img src="https://picsum.photos/200/234" aly="">
-      </div>
+        {% for article in article_list %}
+            <div>
+                <a href="{% url 'articleapp:detail' pk=article.pk %}">
+                    <img src="{{ article.image.url }}" alt="">
+                </a>
+                <span class="NNS_B my-2">{{ article.title }}</span>
+            </div>
+        {% endfor %}
     </div>
-
     <script src="{% static 'js/magicgrid.js' %}"></script>
+    {% include 'snippets/pagination.html' %}
 {% endblock %}

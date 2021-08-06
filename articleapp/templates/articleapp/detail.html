@@ -15,9 +15,10 @@
         <div class="container text-center">
             {# 게시글, 대표 이미지, 글 내용 #}
             <img src="{{ target_article.image.url }}" class="article_image" alt="">
-            <div class="my-5 article_content">
-            {{ target_object.content }}
+            <div>
+                <h3 class="my-5 article_content">{{ target_article.content }}</h3>
             </div>
+
             {% if target_article.writer == user %}
             <div>
                 <a href="{% url 'articleapp:update' pk=target_article.pk %}"
