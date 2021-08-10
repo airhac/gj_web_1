@@ -29,7 +29,9 @@ class ArticleCreateView(CreateView):
 class ArticleDetailView(DetailView):
     model = Article
     context_object_name = 'target_article'
+    #우리가 볼려는 게시물의 객체
     template_name = 'articleapp/detail.html'
+
 @method_decorator(decorator_list, 'get')
 @method_decorator(decorator_list, 'post')
 class ArticleUpdateView(UpdateView):

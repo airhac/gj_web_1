@@ -24,5 +24,7 @@ urlpatterns = [
     path('accounts/', include('accountapp.urls')),
     path('profiles/', include('profileapp.urls')),
     path('articles/', include('articleapp.urls')),
-] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)#어디로 ~하면 어디로 돌려 줄것인지, django의 cong에 있는 static가져와야한다.
+    path('comments/', include('commentapp.urls')),
+] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+#어디로 ~하면 어디로 돌려 줄것인지, django의 cong에 있는 static가져와야한다.
 
