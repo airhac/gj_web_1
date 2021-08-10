@@ -32,8 +32,9 @@
             </div>
             {% endif %}
         </div>
-    <div>
+    <div class="text-center my-4">
         {#          댓글 내용, 냇글 장성창            #}
+        {% include 'commentapp/create.html' with article=target_article %}
     </div>
     </div>
 
