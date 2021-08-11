@@ -9,6 +9,7 @@
                 {{ target_article.title }}
             </h1>
             <h4>{{ target_article.writer.profile.nickname }}</h4>
+            {# writer에서 User객체에 접근 했으면 역방향이든 정방향이든 User객체와 연결된 객체에 접근이 가능 하도록 되어있다. #}
             <p> {{ target_article.created_at }}</p>
         </div>
         <hr>
