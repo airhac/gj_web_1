@@ -43,7 +43,8 @@ SECRET_KEY = env_list['SECRET_KEY']
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["*"]
+#모든 ip를 접속 할 수 있도록 해줍니다.
 
 
 # Application definition
