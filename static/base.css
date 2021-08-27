@@ -59,3 +59,11 @@
         font-size: 13px;
     }
 }
+
+a {
+    text-decoration: None;
+    color: black;
+}
+a:hover{
+    color:dimgray;
+}

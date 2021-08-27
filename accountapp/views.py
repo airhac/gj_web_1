@@ -13,29 +13,10 @@ from accountapp.models import NewModel
 from accountapp.forms import AccountCreationForm
 from articleapp.models import Article
 
-
-@login_required(login_url=reverse_lazy('accountapp:login'))
-def hello_world(request):
-        if request.method == 'POST':
-
-            temp = request.POST.get('input_text')#서버의 데이터를 뽑아서 온다.
-            model_instance = NewModel()
-            model_instance.text = temp#이 값을 저장하는 데이터를 호풀해야함
-            model_instance.save() #모델에 데이터를 저장한다.
-
-            return HttpResponseRedirect(reverse('accountapp:hello_world'))#url을 nameing 해주는 것이다.
-            #마지막 요청이 get으로 바뀐다.
-        else:
-            data_list = NewModel.objects.all()  # 이 모델의 모든 오브젝트드을 가지고 오겠다.
-            return render(request, 'accountapp/hello_world.html',
-                          context={'data_list': data_list})
-            #어떠한 주소로 들어갔을떄 이것을 볼수 있는지 확인
-
-
 class AccountCreateView(CreateView):
     model = User
     form_class = UserCreationForm
-    success_url = reverse_lazy('accountapp:hello_world')
+    success_url = reverse_lazy('articleapp:list')
     template_name = 'accountapp/create.html'
 
 class AccountDetailView(DetailView, MultipleObjectMixin):
@@ -68,7 +49,7 @@ class AccountUpdateView(UpdateView): #어떠한 객체를 업데이트 할것인
 class AccountDeleteView(DeleteView):
     model = User
     context_object_name = 'target_user'
-    success_url =  reverse_lazy('accountapp:hello_world')
+    success_url =  reverse_lazy('articleapp:list')
     template_name = 'accountapp/delete.html'
 
 

@@ -18,3 +18,5 @@ class Article(models.Model):
     #장문이 될수 있는 경우 사용한다.
 
     created_at = models.DateField(auto_now_add=True, null=True)
+
+    like = models.IntegerField(default=0)
