@@ -17,9 +17,12 @@ from django.conf.urls.static import static
 from django.contrib import admin
 from django.urls import path, include
 
+from articleapp.views import ArticleListView
 from gw_odh_project1 import settings
 
 urlpatterns = [
+    path('', ArticleListView.as_view(), name='home'),
+
     path('admin/', admin.site.urls), #관리자 페이지에 관한 설정
     path('accounts/', include('accountapp.urls')),
     path('profiles/', include('profileapp.urls')),

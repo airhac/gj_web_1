@@ -10,7 +10,7 @@ class Article(models.Model):
     writer = models.ForeignKey(User, on_delete=models.SET_NULL, related_name='article', null=True)
     #다중 연결을 해주어야한다. 다른 테이블과 연결 해준다. 작성자 미상의 글로 남도록 해준다.
     #누군가 탈퇴를 한 상황에
-    project = models.ForeignKey(Project, on_delete=models.SET_NULL, related_name='article', null=True)
+    project = models.ForeignKey(Project, on_delete=models.SET_NULL, related_name='article', null=True, blank=True)
     title = models.CharField(max_length=200, null=True)
     image = models.ImageField(upload_to="article/", null=True)
     # 관련한 이미지가 쌀인다.
